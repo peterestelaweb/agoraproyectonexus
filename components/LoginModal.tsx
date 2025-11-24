@@ -19,23 +19,27 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
     e.preventDefault();
     setError('');
 
-    // Simulated Auth Logic
+    // NOTE: This is a MOCK authentication system for demonstration purposes only.
+    // In a production environment, this should be replaced with a real backend auth service.
+    // Do not use these hardcoded credentials in a real application.
+    
     const lowerUser = username.toLowerCase();
 
+    // Generic Mock Credentials
     if (lowerUser === 'profesor' && password === 'admin') {
-      onLogin(UserRole.TEACHER, 'Profesor García');
+      onLogin(UserRole.TEACHER, 'Profesor Demo');
       onClose();
     } else if (lowerUser === 'ampa' && password === 'ampa') {
-      onLogin(UserRole.AMPA, 'Secretaría AMPA');
+      onLogin(UserRole.AMPA, 'Admin AMPA');
       onClose();
     } else if (lowerUser === 'padre' && password === '1234') {
-      onLogin(UserRole.PARENT, 'Familia López');
+      onLogin(UserRole.PARENT, 'Familia Demo');
       onClose();
     } else if (lowerUser === 'alumno' && password === '1234') {
-      onLogin(UserRole.STUDENT, 'Juan López');
+      onLogin(UserRole.STUDENT, 'Estudiante Demo');
       onClose();
     } else {
-      setError('Credenciales incorrectas. Prueba: profesor/admin, ampa/ampa, padre/1234');
+      setError('Credenciales demo incorrectas. Prueba: profesor/admin, ampa/ampa, padre/1234');
     }
   };
 
@@ -54,8 +58,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
             <KeyRound className="w-8 h-8" />
           </div>
-          <h2 className="text-2xl font-bold text-slate-800">Acceso Privado</h2>
-          <p className="text-slate-500 mt-1">Introduce tus credenciales para gestionar contenidos.</p>
+          <h2 className="text-2xl font-bold text-slate-800">Acceso Demo</h2>
+          <p className="text-slate-500 mt-1">Introduce las credenciales de prueba.</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
@@ -97,7 +101,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors shadow-lg shadow-blue-200"
           >
-            Iniciar Sesión
+            Iniciar Sesión (Demo)
           </button>
         </form>
       </div>
